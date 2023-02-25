@@ -8,6 +8,10 @@ import { AcercaDeComponent } from './componentes/acerca-de/acerca-de.component';
 import { ExperienciaComponent } from './componentes/experiencia/experiencia.component';
 import { EducacionComponent } from './componentes/educacion/educacion.component';
 import { HabilidadesComponent } from './componentes/habilidades/habilidades.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ProyectosComponent } from './componentes/proyectos/proyectos.component';
+import { BotonEditarComponent } from './componentes/boton-editar/boton-editar.component';
+import { BotonEliminarComponent } from './componentes/boton-eliminar/boton-eliminar.component';
 
 @NgModule({
   declarations: [
@@ -16,11 +20,15 @@ import { HabilidadesComponent } from './componentes/habilidades/habilidades.comp
     AcercaDeComponent,
     ExperienciaComponent,
     EducacionComponent,
-    HabilidadesComponent
+    HabilidadesComponent,
+    ProyectosComponent,
+    BotonEditarComponent,
+    BotonEliminarComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

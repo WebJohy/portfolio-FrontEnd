@@ -33,12 +33,18 @@
 <!-- seccion hero  -->
 <section class="hero align-items-stretch">
   <div class="bannerContainer">
-    <img  class="img-fluid" id="banner" src="../assets/IMAGEN PORTADA.jpg" alt="Composicion de varias imagenes de desarrollador web">
+    <img  class="img-fluid" id="banner" [src]="miPorfolio.imagenBanner" alt="Composicion de varias imagenes de desarrollador web"/>
+    <ng-container *ngIf="usuarioLogueado">
+     <app-boton-editar (click)="editar()"></app-boton-editar>
+    </ng-container>
   </div>
   
-  <div class="hero-principal d-flex flex-column justify-content-center">
-    <img class="hero-imagen-desarrollador img-fluid" src="../assets/Foto Perfil.jpg" alt="foto de Johana Borroni" width="10%">
-    <h1>Johana Estefani Borroni</h1>
-    <h2>Full Stack Developer junior</h2>
-  </div>
+  <div>
+   <div class="hero-principal d-flex flex-column justify-content-center">
+    <img class="hero-imagen-desarrollador img-fluid" [src]="miPorfolio.imagenPerfil" alt="foto de Johana Borroni" width="10%"/>
+    <h1>{{miPorfolio.nombre}}</h1>
+    <h2>{{miPorfolio.titulo}}</h2>
+   </div>
+   <app-acerca-de> </app-acerca-de>
+</div>
 </section>
