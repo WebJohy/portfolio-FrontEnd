@@ -1,0 +1,72 @@
+.hard {
+    padding: 40px;
+}
+
+.proyectos-recientes img {
+height: 100%;
+width: 100%;
+padding: 10px;
+border-radius: 10px;
+display: block;
+transition: all 0.2s ease;
+}
+
+.proyectos-contenedor {
+    padding-top: 60px;
+    margin-bottom: 40px;
+}
+
+.overlay {
+   transition: all 0.2s ease; 
+   opacity: 0;
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50, -50%);
+   text-align: center;
+}
+
+.overlay p {
+    font-size: 25;
+    font-weight: bold;
+    margin-bottom: 0;
+}
+.proyecto {
+    position: relative;
+}
+
+
+.proyecto:hover img {
+    opacity: 0.2;
+}
+
+.proyecto:hover .overlay {
+    opacity: 1;
+}
+
+/* cuando el cursor este sobre este elemento se le asignara este estilo */
+.proyecto:hover .averlay {
+    opacity: 1;
+}
+
+.overlay .iconos-contenedor {
+    display: flex;
+}
+
+.overlayv i {
+    color: black;
+    font-size: 60;
+    margin: 10px;
+
+}
+
+/* adaptable (responsivo) */
+@media screen and (max-width: 400px;){
+    .overlay p {
+        font-size: 18;
+    }
+
+    .overlayv i {
+        font-size: 40;
+    }
+}

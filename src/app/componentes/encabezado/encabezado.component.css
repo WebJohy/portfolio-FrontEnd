@@ -1,0 +1,32 @@
+/* Barra de navegacion */
+.navbar {
+    padding: 2rem;
+    background-color: #f6e5e8;
+}
+
+.navbar-collapse {
+    align-items: center;
+    justify-content: flex-end;
+}
+
+/* Seccion banner */
+.banner{
+    background-color: #f6e5e8;
+    text-align: start;
+}
+
+.bannerContainer {
+    display: flex;
+    justify-content: center;
+    height: 50vh;
+}
+
+#bannerImg{
+    width: 90%;
+}
+
+#botonEncabezado{
+    display: flex;
+    
+}
+

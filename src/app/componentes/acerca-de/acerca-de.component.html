@@ -1,7 +1,53 @@
-<!-- seccion sobre mí -->
-<section class="sobre-mi seccion-oscura">
-    <div class="contenedor">
-     <h3 class="seccion-titulo"> Acerca de mí </h3>
-     <p class="seccion-texto"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis voluptatibus, sed doloremque cum nihil, atque voluptatum aperiam architecto voluptate quibusdam consectetur delectus. Exercitationem doloremque ipsam aut. Iusto iste esse est!</p>
+<!-- seccion acerca de -->
+<section class="conteinerAcercaDe d-flex">
+  <div class="conteinerPerfil d-flex flex-column">
+    <div class=" d-flex justify-content-center">
+      <div>
+         <img class="imagenPerfil img-fluid" [src]="miPorfolio.imagenPerfil"
+           alt="foto de Johana Borroni" width="10%"/>
+      </div>
+      <!-- botones de edicion para usuario logueado -->
+      <div>
+        <ng-container *ngIf="usuarioLogueado">
+          <app-boton-editar (click)="editar()"></app-boton-editar>
+        </ng-container>
+      </div>
     </div>
- </section>
+    <div class="informacionPersonal d-flex flex-column justify-content-center col-xs-12 col-sm-2 col-md-2 col-lg-12">
+       <!-- botones de edicion para usuario logueado -->
+      <div class="d-flex justify-content-end">
+        <ng-container  *ngIf="usuarioLogueado">
+          <app-boton-editar (click)="editar()"></app-boton-editar>
+        </ng-container>
+      </div>  
+      <div>
+        <h1>{{ miPorfolio.nombre }}</h1>
+        <h2>{{ miPorfolio.titulo }}</h2>
+      </div>
+     
+    </div>
+  </div>
+  <div class="conteinerSobreMi col-xs-12 col-sm-2 col-md-2 col-lg-8">
+    <!-- botones de edicion para usuario logueado -->
+    <div class="d-flex justify-content-end">
+      <ng-container *ngIf="usuarioLogueado">
+        <app-boton-editar (click)="editar()"></app-boton-editar>
+      </ng-container>
+      <ng-container *ngIf="usuarioLogueado">
+        <app-boton-eliminar (click)="eliminar()"></app-boton-eliminar>
+      </ng-container>
+  </div>
+    <div class="col-xs-12 col-sm-2 col-md-2 col-lg-8">
+      <h3 class="seccion-titulo">Acerca de mí</h3>
+      <p class="seccion-texto">
+      ¡Hola! Soy Johana, diseñadora en comunicacion visual y Full Stack
+      Developer junior. Nací en Buenos Aires, pero me mude a Córdoba hace mas de
+      7 años. Me gusta ser organizada y responsable a la hora de trabajar,
+      constantemente aprendo cosas nuevas e intento mejorar dia a dia. Es
+      innegable que la tecnología avanza a pasos agigantados, e ignorar esta
+      realidad era un retroceso en lo personal, por lo que comence a estudiar
+      programacion.
+      </p>
+    </div>
+  </div>
+</section>

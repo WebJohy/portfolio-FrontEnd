@@ -1,0 +1,17 @@
+.iconoEliminar{
+    width: 40px;
+    height: 40px;
+    color: white;
+    background-color: blueviolet;
+    border-radius:50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin-left: 5px;
+    
+}
+
+.iconoEliminar> i {
+ font-size: 35px;
+ }

@@ -1,4 +1,10 @@
-<!-- barra de navegacion -->
+
+<div *ngIf="usuario">
+  <h1>{{usuario.nombre}}</h1>
+  <img src="{{usuario.fotoPerfil}}" alt="">
+</div>
+
+<!-- barra de encabezado -->
 <nav class="navbar navbar-expand-md navbar-light">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">
@@ -30,21 +36,15 @@
     </div>
   </nav>
 
-<!-- seccion hero  -->
-<section class="hero align-items-stretch">
-  <div class="bannerContainer">
-    <img  class="img-fluid" id="banner" [src]="miPorfolio.imagenBanner" alt="Composicion de varias imagenes de desarrollador web"/>
-    <ng-container *ngIf="usuarioLogueado">
-     <app-boton-editar (click)="editar()"></app-boton-editar>
-    </ng-container>
+<!-- seccion banner  -->
+<section class="banner align-items-stretch d-flex">
+  <div class="bannerContainer d-flex">
+    <img  class="img-fluid" id="bannerImg"  alt="Composicion de varias imagenes de desarrollador web"/>
   </div>
+    <!-- botones de edicion para usuario logueado -->
+  <ng-container *ngIf="usuario" id="botonEncabezado d-flex justify-content-center">
+     <app-boton-editar></app-boton-editar>
+  </ng-container>
+
   
-  <div>
-   <div class="hero-principal d-flex flex-column justify-content-center">
-    <img class="hero-imagen-desarrollador img-fluid" [src]="miPorfolio.imagenPerfil" alt="foto de Johana Borroni" width="10%"/>
-    <h1>{{miPorfolio.nombre}}</h1>
-    <h2>{{miPorfolio.titulo}}</h2>
-   </div>
-   <app-acerca-de> </app-acerca-de>
-</div>
 </section>

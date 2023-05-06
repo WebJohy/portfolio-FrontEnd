@@ -1,0 +1,32 @@
+.contenedorEducacion{
+    padding: 4%;
+    background-color: #f6e5e8;
+}
+
+.imagenEducacion{
+    color: rgb(234, 66, 155);
+    background-color: #0a0a23;
+    padding: 10px 15px;
+    border-radius: 80%;
+}
+
+.educacion i {
+    font-size: 2.5rem;
+    color: rgb(234, 66, 155);
+    background-color: #0a0a23;
+    padding: 10px 15px;
+    border-radius: 80%;
+}
+
+
+
+.educacion .columna {
+    padding: 30px;
+    border: 5px #0a0a23;
+    transition: all 0.2s ease-in;
+}
+
+.educacion .columna:hover {
+    color: white;
+    background-color: #0a0a23;
+}

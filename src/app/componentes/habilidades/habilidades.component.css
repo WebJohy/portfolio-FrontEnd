@@ -78,19 +78,19 @@ body{
     top: 5%;
     left: 5%;
   }
-  .progress.blue .progress-bar {
-    border-color: #049dff;
+  .progress.fucsia .progress-bar {
+    border-color: #e413da;
   }
-  .progress.blue .progress-left .progress-bar {
+  .progress.fucsia .progress-left .progress-bar {
     animation: loading-2 1.5s linear forwards 1.8s;
   }
-  .progress.yellow .progress-bar {
-    border-color: #fdba04;
+  .progress.violeta .progress-bar {
+    border-color: blueviolet;
   }
-  .progress.yellow .progress-right .progress-bar {
+  .progress.violeta .progress-right .progress-bar {
     animation: loading-3 1.8s linear forwards;
   }
-  .progress.yellow .progress-left .progress-bar {
+  .progress.violeta .progress-left .progress-bar {
     animation: none;
   }
   @keyframes loading-1 {

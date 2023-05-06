@@ -1,1 +1,357 @@
-<p>educacion works!</p>
+<div
+  class="row edu main-container contenedorEducacion seccion clara d-flex flex-column"
+>
+  <h1 class="seccion-titulo">Educación</h1>
+
+  <div class="text-center">
+    <button type="button" class="btn btn-success" (click)="onOpenModal('add')">
+      <a class="nav-link" style="color: #fff">
+        Añadir educación <span class="sr-only"> (actual)</span></a
+      >
+    </button>
+  </div>
+  <div id="main-container">
+    <div *ngFor="let educacion of educaciones" class="col-lg-12">
+      <div class="container">
+        <div class="row align-items-start">
+          <div class="col">
+            <img src="{{ educacion.imagenEdu }}" alt="" />
+          </div>
+          <div class="col">
+            <h3>{{ educacion.tituloEdu }}</h3>
+          </div>
+          <div class="col text-center">
+            <h3>{{ educacion.fechaEdu }}</h3>
+            <a
+              (click)="onOpenModal('editar', educacion)"
+              class="btn btn-primary tooltips"
+              data-placement="top"
+              data-toggle="tooltip"
+              data-original-title="Editar"
+            >
+              <i class="bi bi-pencil-square"></i>
+            </a>
+            <a
+              (click)="onOpenModal('eliminar', educacion)"
+              class="btn btn-primary tooltips"
+              data-placement="top"
+              data-toggle="tooltip"
+              data-original-title="Eliminar"
+            >
+              <i class="bi bi-x-square"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col align-self-end">
+          <p>{{ educacion.descEdu }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal añadir educacion -->
+  <div
+    class="modal fade"
+    id="addEducacionModal"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="addEducacionModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="addEducacionModalLabel">
+            Añadir educacion
+          </h5>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+            (click)="onCloseModal()"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form #addForm="ngForm" (ngSubmit)="onAddEducacion(addForm)">
+            <div class="form-group">
+              <label for="tituloEdu">Educación</label>
+              <input
+                type="text"
+                ngModel
+                name="tituloEdu"
+                class="form-control"
+                id="tituloEdu"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="fechaEdu">Fecha</label>
+              <input
+                type="text"
+                ngModel
+                name="fechaEdu"
+                class="form-control"
+                id="fechaEdu"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="descEdu">Titulo Profesional</label>
+              <input
+                type="text"
+                ngModel
+                name="descEdu"
+                class="form-control"
+                id="descEdu"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="imagenEdu">Imagen URL</label>
+              <input
+                type="text"
+                ngModel
+                name="imagenEdu"
+                class="form-control"
+                id="imagenEdu"
+                required
+              />
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                id="add-educacion-form"
+                class="btn btn-secondary"
+                data-dismiss="modal"
+                (click)="onCloseModal()"
+              >
+                Close
+              </button>
+              <button
+                [disabled]="addForm.invalid"
+                type="submit"
+                class="btn btn-primary"
+                (click)="onCloseModal()"
+              >
+                Añadir cambios
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Editar Modal -->
+  <div
+    class="modal fade"
+    id="editarEducacionModal"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="educacionEditarModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="editarEducacionModalLabel">
+            Editar educacion {{ editarEducacion?.tituloEdu }}
+          </h5>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+            (click)="onCloseModal()"
+          >
+            <span aria-hidden="true"> &times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form #editForm="ngForm">
+            <div class="form-group">
+              <label for="name">Titulo</label>
+              <input
+                type="text"
+                ngModel="{{ editarEducacion?.tituloEdu }}"
+                name="tituloEdu"
+                class="form-control"
+                id="tituloEdu"
+                aria-describedby="emailHelp"
+                placeholder="Titulo"
+              />
+            </div>
+            <input
+              type="hidden"
+              ngModel="{{ editarEducacion?.idEdu }}"
+              name="idEdu"
+              class="form-control"
+              id="idEdu"
+              placeholder=""
+            />
+            <div class="form-group">
+              <label for="descEdu">Descripcion Educacion</label>
+              <input
+                type="text"
+                ngModel="{{ editarEducacion?.descEdu }}"
+                name="descEdu"
+                class="form-control"
+                id="descEdu"
+                placeholder="descripcion"
+              />
+            </div>
+            <div class="form-group">
+              <label for="phone">Fecha</label>
+              <input
+                type="text"
+                ngModel="{{ editarEducacion?.fechaEdu }}"
+                name="fechaEdu"
+                class="form-control"
+                id="fechaEdu"
+                placeholder="Titulo profesional"
+              />
+            </div>
+            <div class="form-group">
+              <label for="imagenEdu">Imagen URL</label>
+              <input
+                type="text"
+                ngModel="{{ editarEducacion?.imagenEdu }}"
+                name="imagenEdu"
+                class="form-control"
+                id="imagenEdu"
+                placeholder="Imagen URL"
+              />
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                id=""
+                data-dismiss="modal"
+                class="btn btn-secondary"
+              >
+                Cerrar
+              </button>
+              <button
+                (click)="onEditarEducacion(editForm.value)"
+                data-dismiss="modal"
+                class="btn btn-primary"
+              >
+                Guardar cambios
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Eliminar Modal -->
+  <div
+    data-bs-toggle="modal"
+    data-bs-target="#eliminarEducacionModal"
+    class="modal fade"
+    id="eliminarEducacionModal"
+    tabindex="-1"
+    role="dialogo"
+    aria-labelledby="eliminarModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog" role="document">
+      <div class="modal-container">
+        <div class="modal-header">
+          <h5 class="modal-title" id="eliminarModalLabel">
+            Eliminar educacion
+          </h5>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+            (click)="onCloseModal()"
+          >
+            <span aria-hidden="true"> &times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>
+            ¿Estas seguro que quieres eliminar educacion?
+            {{ eliminarEducacion?.tituloEdu }}?
+          </p>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              No
+            </button>
+            <button
+            (click)="onEliminarEducacion(eliminarEducacion!.idEdu)"
+              class="btn btn-danger"
+              data-dismiss="modal"
+            >
+              Si
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Notificacion que no se encontraron educaciones -->
+  <div *ngIf="educaciones?.length == 0" class="col-lg-12 col-md-12 col-xl-12">
+    <div class="alert alert-info" role="alert">
+      <h4 class="alert-header">No hay educaciones!</h4>
+      <p>Educaciones no encontradas</p>
+    </div>
+  </div>
+</div>
+
+
+<section class="contenedorEducacion seccion clara d-flex flex-column">
+  <div class="educacion columna seccion clara">
+    <i class="bi bi-mortarboard-fill imagenEducacion"></i>
+    <div class="contenedorInfoExp d-flex flex-column">
+      <P class="educacionTitulo seccionSubtitulo">Escuela Primaria Nro. 6</P>
+      <p>1994-1999</p>
+      <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. </P>
+    </div>
+  </div>
+  <div class="educacion columna seccion clara">
+    <i class="bi bi-mortarboard-fill imagenEducacion"></i>
+    <div>
+      <P class="educacionTitulo seccionSubtitulo"
+        >Escuela de Educación Secundaria (E.E.S.) Nº2 "Juan María Gutiérrez"</P
+      >
+      <p>2000-2006</p>
+      <P>Direccion: Martín fierro y Ramón Franco 590 </P>
+    </div>
+  </div>
+  <div class="educacion columna seccion clara">
+    <i class="bi bi-mortarboard-fill imagenEducacion"></i>
+    <div>
+      <P class="educacionTitulo seccionSubtitulo">Facultad de Artes U.N.L.P.</P>
+      <p>2007-2013</p>
+      <P>Diseñadora en Comunicación Visual</P>
+    </div>
+  </div>
+  <div class="educacion columna seccion clara">
+    <i class="bi bi-mortarboard-fill imagenEducacion"></i>
+    <div>
+      <P class="educacionTitulo seccionSubtitulo">Argentina Programa</P>
+      <p>2021 - Primera Etapa #SeProgramar APROBADA</p>
+      <P>2022-2023 - Segunda Etapa CURSANDO</P>
+    </div>
+  </div>
+  <div class="educacion columna seccion clara">
+    <i class="bi bi-mortarboard-fill imagenEducacion"></i>
+    <div>
+      <P class="educacionTitulo seccionSubtitulo">Curso DOMESTIKA</P>
+      <p>2022 - Actualidad</p>
+      <P>Google Ads y Facebook Ads</P>
+    </div>
+  </div>
+</section>

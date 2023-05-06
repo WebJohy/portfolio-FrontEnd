@@ -1,4 +1,7 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Usuario } from 'src/app/models/usuario';
+import { HeaderService } from 'src/app/servicios/header.service';
 import { PorfolioService } from 'src/app/servicios/porfolio.service';
 
 @Component({
@@ -7,19 +10,27 @@ import { PorfolioService } from 'src/app/servicios/porfolio.service';
   styleUrls: ['./encabezado.component.css']
 })
 export class EncabezadoComponent implements OnInit {
-  miPorfolio: any;
-  usuarioLogueado: any;
-  constructor(private datosPorfolio:PorfolioService) { }
 
-  public editar (){
-    console.log("Editar");
+  public usuario : Usuario | undefined;
+  public editUsuario : Usuario | undefined;
+
+  
+
+  constructor(private headerService : HeaderService){}
+
+  
+   ngOnInit(): void {
+    this.getUser();
   }
 
-  ngOnInit(): void {
-    this.datosPorfolio.obtenerDatos().subscribe(data => {
-      console.log(data);
-      this.miPorfolio = data; 
-    });
-    this.usuarioLogueado = false;
-  }
+  public getUser(): void {
+    this.headerService.getUser().subscribe({
+      next: (responce: Usuario) => {
+        this.usuario=responce;
+    },
+    error: (error:HttpErrorResponse)=>{
+      alert(error.message);
+    }
+  })
+}
 }

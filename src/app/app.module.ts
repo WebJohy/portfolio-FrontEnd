@@ -12,6 +12,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { ProyectosComponent } from './componentes/proyectos/proyectos.component';
 import { BotonEditarComponent } from './componentes/boton-editar/boton-editar.component';
 import { BotonEliminarComponent } from './componentes/boton-eliminar/boton-eliminar.component';
+import { FormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -28,7 +30,8 @@ import { BotonEliminarComponent } from './componentes/boton-eliminar/boton-elimi
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

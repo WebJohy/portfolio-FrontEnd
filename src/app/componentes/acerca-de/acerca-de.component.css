@@ -1,0 +1,57 @@
+.conteinerAcercaDe{
+   padding: 50px;
+   background-color: #f6e5e8;
+}
+
+
+/* @media (min: widht 576px;){
+ #contenedorFotoPerfil {
+    position: absolute;
+    left: 50%;
+    top: 5px;
+  } 
+} */
+
+
+
+.imagenPerfil {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    
+}
+
+.informacionPersonal{
+    text-align: center;
+    
+}
+
+h1 {
+    font-size: 25px;
+    font-weight: bold;
+    font-family: 'Libre Baskerville', serif; 
+ }
+
+ h2 {
+    font-size: 20px;
+ }
+
+.conteinerPerfil{
+    max-width: 600px;
+    text-align:center;
+    justify-content: center;
+}
+
+
+.conteinerSobreMi {
+    height:300px;
+    padding: 50px;
+    text-align:justify;
+}
+
+.imagen-perfil {
+   text-align: center;
+   font-size: small;
+}
+
+
