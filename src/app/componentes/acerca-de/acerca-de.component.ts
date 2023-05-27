@@ -20,6 +20,7 @@ export class AcercaDeComponent implements OnInit {
     console.log("Eliminar");
   }
 
+  fotoPerfil: any = { titulo: "Foto de perfil", descripcion: "Nueva URL para foto de perfil" };
 
   ngOnInit(): void {
     this.datosPorfolio.obtenerDatos().subscribe(data => {

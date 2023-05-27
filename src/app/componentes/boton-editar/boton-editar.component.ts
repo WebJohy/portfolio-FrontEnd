@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-boton-editar',
@@ -6,9 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./boton-editar.component.css']
 })
 export class BotonEditarComponent {
+  @Input() propiedadesModal: any;
 
-   
-
+  ngOnInit() {
+    console.log('LLEGAN?? ', this.propiedadesModal)
+  }
 }
 
 // public onOpenModalEditar(modo:String, educacion?: Educacion):void{
