@@ -1,6 +1,7 @@
 package com.ap.proyectofinal.controller;
 
 import com.ap.proyectofinal.models.Educacion;
+import com.ap.proyectofinal.responses.Response;
 import com.ap.proyectofinal.services.EducacionService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,7 +19,6 @@ public class EducacionController {
   @GetMapping("/all")
   public ResponseEntity<List <Educacion>> obtenerEducacion(){
     List<Educacion> educaciones=educacionService.buscarEducaciones();
-    System.out.println("ingrese!");
     return new ResponseEntity<>(educaciones, HttpStatus.OK);
   }
   @PutMapping("/editar")
@@ -33,9 +33,13 @@ public class EducacionController {
     return new ResponseEntity<>(nuevaEducacion,HttpStatus.CREATED);
   }
 
-  @DeleteMapping("/delete/{id}")
-  public ResponseEntity<?> borrarEducacion(@PathVariable("id") Long id){
+  @DeleteMapping("/eliminar/{id}")
+  public ResponseEntity<Response> borrarEducacion(@PathVariable("id") Long id){
+    System.out.println(id);
     educacionService.borrarEducacion(id);
-    return new ResponseEntity<>(HttpStatus.OK);
+    Response response= new Response();
+    response.setSuccess(true);
+    response.setMessage("Educacion eliminada");
+    return new ResponseEntity<>(response,HttpStatus.OK);
   }
 }

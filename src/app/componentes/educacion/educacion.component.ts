@@ -84,7 +84,7 @@ ngOnInit(): void {
   public onEditarEducacion(educacion: Educacion){
     this.editarEducacion=educacion;
     console.log(educacion)
-    document.getElementById('add-educacion-form')?.click();
+      document.getElementById('add-educacion-form')?.click();
       this.educacionService.editarEducacion(educacion).subscribe({
       next: (response: Educacion)=>{
         console.log(response);

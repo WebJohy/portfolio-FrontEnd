@@ -14,10 +14,10 @@
     <div *ngFor="let educacion of educaciones" class="col-lg-12">
       <div class="container">
         <div class="row align-items-start">
-          <div class="col">
-            <img src="{{ educacion.imagenEdu }}" alt="" />
+          <div class="col-3">
+            <img src="{{educacion.imagenEdu}}" alt="" />
           </div>
-          <div class="col">
+          <div class="col-6">
             <h3>{{ educacion.tituloEdu }}</h3>
           </div>
           <div class="col text-center">
@@ -85,6 +85,7 @@
                 name="tituloEdu"
                 class="form-control"
                 id="tituloEdu"
+                placeholder="Titulo"
                 required
               />
             </div>
@@ -96,6 +97,7 @@
                 name="fechaEdu"
                 class="form-control"
                 id="fechaEdu"
+                placeholder="Fecha"
                 required
               />
             </div>
@@ -107,6 +109,7 @@
                 name="descEdu"
                 class="form-control"
                 id="descEdu"
+                placeholder="Descripcion"
                 required
               />
             </div>
@@ -118,6 +121,7 @@
                 name="imagenEdu"
                 class="form-control"
                 id="imagenEdu"
+                placeholder="Imagen"
                 required
               />
             </div>
@@ -250,8 +254,6 @@
 
   <!-- Eliminar Modal -->
   <div
-    data-bs-toggle="modal"
-    data-bs-target="#eliminarEducacionModal"
     class="modal fade"
     id="eliminarEducacionModal"
     tabindex="-1"
@@ -260,7 +262,7 @@
     aria-hidden="true"
   >
     <div class="modal-dialog" role="document">
-      <div class="modal-container">
+      <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="eliminarModalLabel">
             Eliminar educacion
@@ -276,6 +278,7 @@
           </button>
         </div>
         <div class="modal-body">
+          <form >
           <p>
             ¿Estas seguro que quieres eliminar educacion?
             {{ eliminarEducacion?.tituloEdu }}?
@@ -284,23 +287,26 @@
             <button
               type="button"
               class="btn btn-secondary"
-              data-dismiss="modal"
+              
+              (click)="onCloseModal()"
             >
               No
             </button>
             <button
             (click)="onEliminarEducacion(eliminarEducacion!.idEdu)"
               class="btn btn-danger"
-              data-dismiss="modal"
+             
             >
               Si
             </button>
           </div>
+          </form>
         </div>
       </div>
     </div>
   </div>
 
+  
   <!-- Notificacion que no se encontraron educaciones -->
   <div *ngIf="educaciones?.length == 0" class="col-lg-12 col-md-12 col-xl-12">
     <div class="alert alert-info" role="alert">
