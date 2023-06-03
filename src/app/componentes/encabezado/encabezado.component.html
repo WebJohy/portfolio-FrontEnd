@@ -39,7 +39,7 @@
 <!-- seccion banner  -->
 <section class="banner align-items-stretch d-flex">
   <div class="bannerContainer d-flex">
-    <img  class="img-fluid" id="bannerImg"  alt="Composicion de varias imagenes de desarrollador web"/>
+    <img  class="img-fluid" id="bannerImg"  alt="Composicion de varias imagenes de desarrollador web" [src]="urlImagen"/>
   </div>
     <!-- botones de edicion para usuario logueado -->
   <ng-container *ngIf="usuario" id="botonEncabezado d-flex justify-content-center">
