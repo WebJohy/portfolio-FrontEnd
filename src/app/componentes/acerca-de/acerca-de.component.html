@@ -9,7 +9,7 @@
       <!-- botones de edicion para usuario logueado -->
       <div>
         <ng-container *ngIf="usuarioLogueado">
-          <app-boton-editar [propiedadesModal]="fotoPerfil" (click)="editar()"></app-boton-editar>
+          <app-boton-editar [propiedadesModal]="propiedadesModal" (click)="editar('fotoPerfil')"></app-boton-editar>
         </ng-container>
       </div>
     </div>
@@ -17,7 +17,7 @@
        <!-- botones de edicion para usuario logueado -->
       <div class="d-flex justify-content-end">
         <ng-container  *ngIf="usuarioLogueado">
-          <app-boton-editar (click)="editar()"></app-boton-editar>
+          <app-boton-editar [propiedadesModal]="propiedadesModal" (click)="editar('nombreTitulo')"></app-boton-editar>
         </ng-container>
       </div>  
       <div>
@@ -31,7 +31,7 @@
     <!-- botones de edicion para usuario logueado -->
     <div class="d-flex justify-content-end">
       <ng-container *ngIf="usuarioLogueado">
-        <app-boton-editar (click)="editar()"></app-boton-editar>
+        <app-boton-editar [propiedadesModal]="propiedadesModal" (click)="editar('acercaDe')"></app-boton-editar>
       </ng-container>
       <ng-container *ngIf="usuarioLogueado">
         <app-boton-eliminar (click)="eliminar()"></app-boton-eliminar>
