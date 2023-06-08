@@ -3,7 +3,7 @@
   <div class="conteinerPerfil d-flex flex-column">
     <div class=" d-flex justify-content-center">
       <div>
-         <img class="imagenPerfil img-fluid" [src]="miPorfolio.imagenPerfil"
+         <img class="imagenPerfil img-fluid" [src]="miPorfolio?.imagenPerfil"
            alt="foto de Johana Borroni" width="10%"/>
       </div>
       <!-- botones de edicion para usuario logueado -->
@@ -21,8 +21,8 @@
         </ng-container>
       </div>  
       <div>
-        <h1>{{ miPorfolio.nombre }}</h1>
-        <h2>{{ miPorfolio.titulo }}</h2>
+        <h1>{{ miPorfolio?.nombre }}</h1>
+        <h2>{{ miPorfolio?.titulo }}</h2>
       </div>
      
     </div>
