@@ -13,13 +13,14 @@
   <div id="main-container">
     <div *ngFor="let educacion of educaciones" class="col-lg-12">
       <div class="educacion columna seccion clara">
-         <img
-          *ngIf="educacion.imagenEdu; else icon"
+         <ng-container *ngIf="imagenUrlValida(educacion.imagenEdu); else defaultIcon">
+          <img
           class="imagenEducacion"
           src="{{ educacion.imagenEdu }}"
           alt=""
-        />
-        <ng-template #icon>
+          />
+         </ng-container>
+        <ng-template #defaultIcon>
           <i class="bi bi-mortarboard-fill imagenEducacion"></i>
         </ng-template>
 

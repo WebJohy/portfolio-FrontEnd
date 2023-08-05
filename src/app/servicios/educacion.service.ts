@@ -29,4 +29,19 @@ export class EducacionService {
     return this.http.delete<void>(`${this.apiServerUrl}/educacion/eliminar/${educacionId}`);
   }
 
+
+  public validarUrlImagen(url:string):Promise<boolean|undefined>{
+    console.log(`llega funcion`)
+    return this.http.head(url, { observe: 'response' }) 
+      .toPromise()
+      .then(response => {
+        console.log(response)
+        return response?.status === 200 && response?.headers.get('content-type')?.startsWith('image/');
+      })
+      .catch(() => {
+        console.log(`error`)
+        return false;
+      });
+  }
+
 }

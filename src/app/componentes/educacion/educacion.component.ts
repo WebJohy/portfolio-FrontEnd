@@ -15,6 +15,7 @@ export class EducacionComponent implements OnInit {
 public educaciones: Educacion[]=[];
 public editarEducacion:Educacion | undefined;
 public eliminarEducacion:Educacion | undefined;
+imagenValida:boolean | undefined = false;
 
 modal:any;
 
@@ -25,6 +26,7 @@ ngOnInit(): void {
   }
 
   public getEducaciones():void{
+      console.log(`llega educaciones`)
     this.educacionService.getEducacion().subscribe({
       next:(Response: Educacion[]) =>{
         this.educaciones=Response;
@@ -33,8 +35,21 @@ ngOnInit(): void {
         alert(error.message);
       },
      })
-   
+   }
+
+  imagenUrlValida(image: string): Promise<boolean | undefined> {
+    console.log(`url valida`)
+    return this.educacionService.validarUrlImagen(image)
+      .then(valida => {
+        console.log(valida); 
+        return valida;
+      })
+      .catch(error => {
+        console.error(error);
+        return false;
+      });
   }
+
   public onOpenModal(modo:String, educacion?: Educacion):void{
     const container=document.getElementById('main-container');
     const button=document.createElement('button');
@@ -111,7 +126,7 @@ ngOnInit(): void {
 
   public onCloseModal():void{
     this.modal.hide();
-    console.log("funciona boton");
+    
 
     }
 
