@@ -12,41 +12,44 @@
   </div>
   <div id="main-container">
     <div *ngFor="let educacion of educaciones" class="col-lg-12">
-      <div class="container">
-        <div class="row align-items-start">
-          <div class="col-3">
-            <img src="{{educacion.imagenEdu}}" alt="" />
-          </div>
-          <div class="col-6">
-            <h3>{{ educacion.tituloEdu }}</h3>
-          </div>
-          <div class="col text-center">
-            <h3>{{ educacion.fechaEdu }}</h3>
-            <a
-              (click)="onOpenModal('editar', educacion)"
-              class="btn btn-primary tooltips"
-              data-placement="top"
-              data-toggle="tooltip"
-              data-original-title="Editar"
-            >
-              <i class="bi bi-pencil-square"></i>
-            </a>
-            <a
-              (click)="onOpenModal('eliminar', educacion)"
-              class="btn btn-primary tooltips"
-              data-placement="top"
-              data-toggle="tooltip"
-              data-original-title="Eliminar"
-            >
-              <i class="bi bi-x-square"></i>
-            </a>
-          </div>
+      <div class="educacion columna seccion clara">
+         <img
+          *ngIf="educacion.imagenEdu; else icon"
+          class="imagenEducacion"
+          src="{{ educacion.imagenEdu }}"
+          alt=""
+        />
+        <ng-template #icon>
+          <i class="bi bi-mortarboard-fill imagenEducacion"></i>
+        </ng-template>
+
+        <div class="contenedorInfoExp d-flex flex-column">
+          <P class="educacionTitulo seccionSubtitulo">{{
+            educacion.tituloEdu
+          }}</P>
+          <p>{{ educacion.fechaEdu }}</p>
+          <P>{{ educacion.descEdu }}</P>
         </div>
       </div>
-      <div class="row">
-        <div class="col align-self-end">
-          <p>{{ educacion.descEdu }}</p>
-        </div>
+      <div class="col text-center">
+        <a
+          (click)="onOpenModal('editar', educacion)"
+          class="btn btn-primary tooltips"
+          data-placement="top"
+          data-toggle="tooltip"
+          data-original-title="Editar"
+        >
+          <i class="bi bi-pencil-square"></i>
+        </a>
+        <a
+          (click)="onOpenModal('eliminar', educacion)"
+          class="btn btn-primary tooltips"
+          data-placement="top"
+          data-toggle="tooltip"
+          data-original-title="Eliminar"
+        >
+          <i class="bi bi-x-square"></i>
+        </a>
       </div>
     </div>
   </div>
@@ -278,35 +281,32 @@
           </button>
         </div>
         <div class="modal-body">
-          <form >
-          <p>
-            ¿Estas seguro que quieres eliminar educacion?
-            {{ eliminarEducacion?.tituloEdu }}?
-          </p>
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              
-              (click)="onCloseModal()"
-            >
-              No
-            </button>
-            <button
-            (click)="onEliminarEducacion(eliminarEducacion!.idEdu)"
-              class="btn btn-danger"
-             
-            >
-              Si
-            </button>
-          </div>
+          <form>
+            <p>
+              ¿Estas seguro que quieres eliminar educacion?
+              {{ eliminarEducacion?.tituloEdu }}?
+            </p>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                (click)="onCloseModal()"
+              >
+                No
+              </button>
+              <button
+                (click)="onEliminarEducacion(eliminarEducacion!.idEdu)"
+                class="btn btn-danger"
+              >
+                Si
+              </button>
+            </div>
           </form>
         </div>
       </div>
     </div>
   </div>
 
-  
   <!-- Notificacion que no se encontraron educaciones -->
   <div *ngIf="educaciones?.length == 0" class="col-lg-12 col-md-12 col-xl-12">
     <div class="alert alert-info" role="alert">
@@ -315,7 +315,6 @@
     </div>
   </div>
 </div>
-
 
 <section class="contenedorEducacion seccion clara d-flex flex-column">
   <div class="educacion columna seccion clara">

@@ -10,3 +10,13 @@
     cursor: pointer;
     
 }
+
+.input-group{
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group input{
+    width: 100%;
+    margin-top: 1rem;
+}

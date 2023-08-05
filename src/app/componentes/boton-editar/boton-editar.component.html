@@ -1,34 +1,37 @@
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary iconoEditar" data-bs-toggle="modal" data-bs-target="#exampleModal">
+<button type="button" class="btn btn-primary iconoEditar" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="open(content)">
      <i class="bi bi-pencil-fill"></i>
    </button>
    
-   <!-- Modal -->
-   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-     <div class="modal-dialog">
-       <div class="modal-content">
-         <div class="modal-header">
-           <h1 class="modal-title fs-5" id="exampleModalLabel">Editar {{propiedadesModal?.titulo}}</h1>
-           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-         </div>
-         <div class="modal-body">
-          <div class="form-group">
-               <label for="tituloEdu">{{propiedadesModal?.descripcion}}</label>
-               <input
-                 type="text"
-                 ngModel
-                 name="tituloEdu"
-                 class="form-control"
-                 id="tituloEdu"
-                 placeholder={{propiedadesModal?.descripcion}}
-                 required
+   <ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">{{propiedadesModal?.titulo}}</h4>
+      <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+      <form>
+        <div class="mb-3">
+         
+         <div class="input-group">
+            <input
+              id="descripcion"
+              class="form-control"
+              placeholder={{propiedadesModal?.descripcion}}
+             />
+            <input
+              *ngIf="propiedadesModal.subdescripcion"
+              id="subdescripcion"
+              class="form-control"
+              placeholder={{propiedadesModal?.subdescripcion}}
+  
                />
-             </div>
-         </div>
-         <div class="modal-footer">
-           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-           <button type="button" class="btn btn-primary">Guardar cambios</button>
-         </div>
-       </div>
-     </div>
-   </div>
+            
+          </div>
+          
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Guardar</button>
+    </div>
+  </ng-template>
