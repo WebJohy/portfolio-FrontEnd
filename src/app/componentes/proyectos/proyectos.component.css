@@ -2,6 +2,12 @@
     padding: 40px;
 }
 
+.proyectos-recientes{
+   margin-top: 35px;
+   padding: 4%;
+   background-color: #f6e5e8;
+}
+
 .proyectos-recientes img {
 height: 100%;
 width: 100%;

@@ -1,0 +1,32 @@
+.contenedorEducacion{
+    padding: 4%;
+    background-color: #f6e5e8;
+}
+
+.iconoEditar{
+    width: 40px;
+    height: 40px;
+    color: white;
+    background-color: blueviolet;
+    border-radius:50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    
+}
+
+.iconoEliminar{
+    width: 40px;
+    height: 40px;
+    color: white;
+    background-color: rgb(138, 43, 226);
+    border-radius:50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin-left: 5px;
+    
+}
+

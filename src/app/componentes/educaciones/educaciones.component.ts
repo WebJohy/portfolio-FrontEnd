@@ -6,11 +6,14 @@ import { EducacionService } from 'src/app/servicios/educacion.service';
 declare var window:any;
 
 @Component({
-  selector: 'app-educacion',
-  templateUrl: './educacion.component.html',
-  styleUrls: ['./educacion.component.css']
+  selector: 'app-educaciones',
+  templateUrl: './educaciones.component.html',
+  styleUrls: ['./educaciones.component.css']
 })
-export class EducacionComponent implements OnInit {
+
+
+
+export class EducacionesComponent implements OnInit {
 
 public educaciones: Educacion[]=[];
 public editarEducacion:Educacion | undefined;
@@ -19,7 +22,7 @@ imagenValida:boolean | undefined = false;
 
 modal:any;
 
-constructor(private educacionService:EducacionService) {}
+constructor(private educacionesService:EducacionService) {}
 
 ngOnInit(): void {
   this.getEducaciones();
@@ -27,7 +30,7 @@ ngOnInit(): void {
 
   public getEducaciones():void{
       console.log(`llega educaciones`)
-    this.educacionService.getEducacion().subscribe({
+    this.educacionesService.getEducacion().subscribe({
       next:(Response: Educacion[]) =>{
         this.educaciones=Response;
       },
@@ -37,18 +40,7 @@ ngOnInit(): void {
      })
    }
 
-  imagenUrlValida(image: string): Promise<boolean | undefined> {
-    console.log(`url valida`)
-    return this.educacionService.validarUrlImagen(image)
-      .then(valida => {
-        console.log(valida); 
-        return valida;
-      })
-      .catch(error => {
-        console.error(error);
-        return false;
-      });
-  }
+ 
 
   public onOpenModal(modo:String, educacion?: Educacion):void{
     const container=document.getElementById('main-container');
@@ -84,7 +76,7 @@ ngOnInit(): void {
   }
   public onAddEducacion(addForm: NgForm):void{
     document.getElementById('add-educacion-form')?.click();
-    this.educacionService.addEducacion(addForm.value).subscribe({
+    this.educacionesService.addEducacion(addForm.value).subscribe({
       next: (response: Educacion)=>{
         console.log(response);
         this.getEducaciones();
@@ -100,7 +92,7 @@ ngOnInit(): void {
     this.editarEducacion=educacion;
     console.log(educacion)
       document.getElementById('add-educacion-form')?.click();
-      this.educacionService.editarEducacion(educacion).subscribe({
+      this.educacionesService.editarEducacion(educacion).subscribe({
       next: (response: Educacion)=>{
         console.log(response);
         this.getEducaciones();
@@ -113,7 +105,7 @@ ngOnInit(): void {
 
   public onEliminarEducacion(idEdu: number):void{
       console.log("llega")
-      this.educacionService.eliminarEducacion(idEdu).subscribe({
+      this.educacionesService.eliminarEducacion(idEdu).subscribe({
       next: (response: void)=>{
         console.log(response);
         this.getEducaciones();

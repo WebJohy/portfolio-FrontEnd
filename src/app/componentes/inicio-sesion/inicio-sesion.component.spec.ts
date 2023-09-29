@@ -1,17 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { EncabezadoComponent } from './encabezado.component';
 
-describe('EncabezadoComponent', () => {
-  let component: EncabezadoComponent;
-  let fixture: ComponentFixture<EncabezadoComponent>;
+import { InicioSesionComponent } from './inicio-sesion.component';
+
+describe('InicioSesionComponent', () => {
+  let component: InicioSesionComponent;
+  let fixture: ComponentFixture<InicioSesionComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ EncabezadoComponent ]
+      declarations: [ InicioSesionComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(EncabezadoComponent);
+    fixture = TestBed.createComponent(InicioSesionComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -20,6 +21,3 @@ describe('EncabezadoComponent', () => {
     expect(component).toBeTruthy();
   });
 });
-
-
-

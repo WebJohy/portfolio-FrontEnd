@@ -2,128 +2,80 @@
 <section class="seccion-clara d-flex">
   <div class="container">
     <p class="seccion-titulo texto-negro">Hard & Soft Skills</p>
-
-    <div class="row d-flex jutify-content-around">
+    
+    <div class="row skillRow d-flex jutify-content-evenly">
       <div class="col justify-content-center ">
         <div>
           <h3 class="seccion-subtitulo">HTML</h3>
         </div>
-        <div class="progress fucsia">
-          <span class="progress-left">
-            <span class="progress-bar"></span>
-          </span>
-          <span class="progress-right">
-            <span class="progress-bar"></span>
-          </span>
-          <div class="progress-value">65%</div>
-        </div>
+        <circle-progress
+        [percent]="65">
+        </circle-progress>
       </div>
 
       <div class="col justify-content-center">
         <div>
           <h3 class="seccion-subtitulo">JavaScript</h3>
         </div>
-        <div class="progress fucsia">
-          <span class="progress-left">
-            <span class="progress-bar"></span>
-          </span>
-          <span class="progress-right">
-            <span class="progress-bar"></span>
-          </span>
-          <div class="progress-value">62%</div>
-        </div>
+        <circle-progress
+        [percent]="62">
+        </circle-progress>
       </div>
 
       <div class="col justify-content-center">
         <div>
           <h3 class="seccion-subtitulo">Angular</h3>
         </div>
-        <div class="progress fucsia">
-          <span class="progress-left">
-            <span class="progress-bar"></span>
-          </span>
-          <span class="progress-right">
-            <span class="progress-bar"></span>
-          </span>
-          <div class="progress-value">70.5%</div>
-        </div>
+        <circle-progress
+          [percent]="85">
+        </circle-progress>
       </div>
 
       <div class="col justify-content-center">
         <div>
           <h3 class="seccion-subtitulo">Corel DRAW</h3>
         </div>
-        <div class="progress fucsia">
-          <span class="progress-left">
-            <span class="progress-bar"></span>
-          </span>
-          <span class="progress-right">
-            <span class="progress-bar"></span>
-          </span>
-          <div class="progress-value">90.5%</div>
-        </div>
+        <circle-progress
+        [percent]="90.5">
+      </circle-progress>
       </div>
     </div>
 
-    <div class="row d-flex jutify-content-around">
+    <div class="row skillRow d-flex jutify-content-evenly">
       <div class="col justify-content-center">
         <div>
           <h3 class="seccion-subtitulo">Trabajo en equipo</h3>
         </div>
-        <div class="progress violeta">
-          <span class="progress-left">
-            <span class="progress-bar"></span>
-          </span>
-          <span class="progress-right">
-            <span class="progress-bar"></span>
-          </span>
-          <div class="progress-value">90%</div>
-        </div>
+        <circle-progress
+        [percent]="90">
+      </circle-progress>
       </div>
 
       <div class="col justify-content-center">
         <div>
           <h3 class="seccion-subtitulo">Proactividad</h3>
         </div>
-        <div class="progress violeta">
-          <span class="progress-left">
-            <span class="progress-bar"></span>
-          </span>
-          <span class="progress-right">
-            <span class="progress-bar"></span>
-          </span>
-          <div class="progress-value">80.5%</div>
-        </div>
+        <circle-progress
+        [percent]="80.5">
+      </circle-progress>
       </div>
 
       <div class="col justify-content-center">
         <div>
           <h3 class="seccion-subtitulo">Creatividad</h3>
         </div>
-        <div class="progress violeta">
-          <span class="progress-left">
-            <span class="progress-bar"></span>
-          </span>
-          <span class="progress-right">
-            <span class="progress-bar"></span>
-          </span>
-          <div class="progress-value">92%</div>
-        </div>
+        <circle-progress
+          [percent]="92">
+        </circle-progress>
       </div>
 
       <div class="col justify-content-center">
         <div>
           <h3 class="seccion-subtitulo">Empatia</h3>
         </div>
-        <div class="progress violeta">
-          <span class="progress-left">
-            <span class="progress-bar"></span>
-          </span>
-          <span class="progress-right">
-            <span class="progress-bar"></span>
-          </span>
-          <div class="progress-value">85%</div>
-        </div>
+        <circle-progress
+        [percent]="85">
+      </circle-progress>
       </div>
     </div>
   </div>

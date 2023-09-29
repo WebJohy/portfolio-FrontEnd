@@ -30,18 +30,9 @@ export class EducacionService {
   }
 
 
-  public validarUrlImagen(url:string):Promise<boolean|undefined>{
-    console.log(`llega funcion`)
-    return this.http.head(url, { observe: 'response' }) 
-      .toPromise()
-      .then(response => {
-        console.log(response)
-        return response?.status === 200 && response?.headers.get('content-type')?.startsWith('image/');
-      })
-      .catch(() => {
-        console.log(`error`)
-        return false;
-      });
+  public validarUrlImagen(url:string):boolean{
+    console.log(`llega funcion : `, url.startsWith('https') && url.endsWith('.png') || url.endsWith('.jpeg') || url.endsWith('.jpg'))
+    return url.startsWith('https') && url.endsWith('.png') || url.endsWith('.jpeg') || url.endsWith('.jpg');
   }
 
 }

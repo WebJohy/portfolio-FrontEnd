@@ -1,0 +1,25 @@
+<button type="button" class="iconoEditar" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="open(content)">
+    <i class="bi bi-person-fill"></i>
+  </button>
+  
+  <ng-template #content let-modal>
+   <div class="modal-header">
+     <h4 class="modal-title" id="modal-basic-title">Inicio Sesión</h4>
+     <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+   </div>
+   <div class="modal-body">
+    <form>
+        <div class="mb-3">
+          <label for="recipient-name" class="col-form-label">Email</label>
+          <input type="text" class="form-control" id="recipient-name" [(ngModel)]="email">
+        </div>
+        <div class="mb-3">
+          <label for="message-text" class="col-form-label">Contraseña</label>
+          <textarea class="form-control" id="message-text"></textarea>
+        </div>
+      </form>
+   </div>
+   <div class="modal-footer">
+     <button type="button" class="bi bi-person-fill" (click)="sendLogin()">Confirmar</button>
+   </div>
+ </ng-template>

@@ -1,0 +1,20 @@
+<div class="educacion columna seccion clara ">
+  <ng-container *ngIf="imagenValida; else defaultIcon">
+     <img class="formatoImagen"
+     src="{{ educacion.imagenEdu }}"
+     alt=""
+     />
+   </ng-container>
+   <ng-template #defaultIcon>
+     <i class="bi bi-mortarboard-fill imagenEducacion"></i>
+   </ng-template>
+  
+
+   <div class="contenedorInfoExp d-flex flex-column">
+     <P class="educacionTitulo seccionSubtitulo">{{
+       educacion.tituloEdu
+     }}</P>
+     <p>{{ educacion.fechaEdu }}</p>
+     <P>{{ educacion.descEdu }}</P>
+   </div>
+ </div>

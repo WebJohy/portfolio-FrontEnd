@@ -11,31 +11,14 @@
     </button>
   </div>
   <div id="main-container">
-    <div *ngFor="let educacion of educaciones" class="col-lg-12">
-      <div class="educacion columna seccion clara">
-         <ng-container *ngIf="imagenUrlValida(educacion.imagenEdu); else defaultIcon">
-          <img
-          class="imagenEducacion"
-          src="{{ educacion.imagenEdu }}"
-          alt=""
-          />
-         </ng-container>
-        <ng-template #defaultIcon>
-          <i class="bi bi-mortarboard-fill imagenEducacion"></i>
-        </ng-template>
+    <div *ngFor="let educacion of educaciones" class="d-flex col-lg-12">
+      <app-educacion [educacion]="educacion">
 
-        <div class="contenedorInfoExp d-flex flex-column">
-          <P class="educacionTitulo seccionSubtitulo">{{
-            educacion.tituloEdu
-          }}</P>
-          <p>{{ educacion.fechaEdu }}</p>
-          <P>{{ educacion.descEdu }}</P>
-        </div>
-      </div>
-      <div class="col text-center">
-        <a
+      </app-educacion>
+      <div class="col text-center d-flex justify-content-end">
+        <a 
           (click)="onOpenModal('editar', educacion)"
-          class="btn btn-primary tooltips"
+          class="btn btn-primary tooltips iconoEditar"
           data-placement="top"
           data-toggle="tooltip"
           data-original-title="Editar"
@@ -44,7 +27,7 @@
         </a>
         <a
           (click)="onOpenModal('eliminar', educacion)"
-          class="btn btn-primary tooltips"
+          class="btn btn-primary tooltips iconoEliminar"
           data-placement="top"
           data-toggle="tooltip"
           data-original-title="Eliminar"
@@ -317,47 +300,3 @@
   </div>
 </div>
 
-<section class="contenedorEducacion seccion clara d-flex flex-column">
-  <div class="educacion columna seccion clara">
-    <i class="bi bi-mortarboard-fill imagenEducacion"></i>
-    <div class="contenedorInfoExp d-flex flex-column">
-      <P class="educacionTitulo seccionSubtitulo">Escuela Primaria Nro. 6</P>
-      <p>1994-1999</p>
-      <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. </P>
-    </div>
-  </div>
-  <div class="educacion columna seccion clara">
-    <i class="bi bi-mortarboard-fill imagenEducacion"></i>
-    <div>
-      <P class="educacionTitulo seccionSubtitulo"
-        >Escuela de Educación Secundaria (E.E.S.) Nº2 "Juan María Gutiérrez"</P
-      >
-      <p>2000-2006</p>
-      <P>Direccion: Martín fierro y Ramón Franco 590 </P>
-    </div>
-  </div>
-  <div class="educacion columna seccion clara">
-    <i class="bi bi-mortarboard-fill imagenEducacion"></i>
-    <div>
-      <P class="educacionTitulo seccionSubtitulo">Facultad de Artes U.N.L.P.</P>
-      <p>2007-2013</p>
-      <P>Diseñadora en Comunicación Visual</P>
-    </div>
-  </div>
-  <div class="educacion columna seccion clara">
-    <i class="bi bi-mortarboard-fill imagenEducacion"></i>
-    <div>
-      <P class="educacionTitulo seccionSubtitulo">Argentina Programa</P>
-      <p>2021 - Primera Etapa #SeProgramar APROBADA</p>
-      <P>2022-2023 - Segunda Etapa CURSANDO</P>
-    </div>
-  </div>
-  <div class="educacion columna seccion clara">
-    <i class="bi bi-mortarboard-fill imagenEducacion"></i>
-    <div>
-      <P class="educacionTitulo seccionSubtitulo">Curso DOMESTIKA</P>
-      <p>2022 - Actualidad</p>
-      <P>Google Ads y Facebook Ads</P>
-    </div>
-  </div>
-</section>

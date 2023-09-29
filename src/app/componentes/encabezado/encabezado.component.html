@@ -30,6 +30,22 @@
               <img src="../assets/Logo Linkedin.png" alt="logoLinkedin" width="50">
             </a>
           </li>
+          <li>
+            <ng-container>
+              <app-inicio-sesion>
+              <i class="bi bi-person-fill"></i>
+              </app-inicio-sesion>
+            </ng-container>
+          </li>
+
+          <!-- <div class="d-flex justify-content-end">
+            <ng-container *ngIf="usuarioLogueado">
+              <app-boton-editar
+                [propiedadesModal]="propiedadesModal"
+                (click)="editar('nombreTitulo')"
+              ></app-boton-editar>
+            </ng-container>
+          </div> -->
 
         </ul>
       </div>

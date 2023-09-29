@@ -1,13 +1,17 @@
-.contenedorEducacion{
-    padding: 4%;
-    background-color: #f6e5e8;
-}
-
 .imagenEducacion{
     color: rgb(234, 66, 155);
     background-color: #0a0a23;
     padding: 10px 15px;
     border-radius: 80%;
+    width: 70px;
+    height: 70px;
+}
+
+.formatoImagen{
+    border-radius: 80%;
+    width: 70px;
+    height: 70px;
+    object-fit: fill;
 }
 
 .educacion i {
