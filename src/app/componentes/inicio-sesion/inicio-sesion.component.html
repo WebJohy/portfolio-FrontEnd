@@ -8,18 +8,18 @@
      <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
    </div>
    <div class="modal-body">
-    <form>
+    <form #loginForm="ngForm" (ngSubmit)="sendLogin(loginForm)">
         <div class="mb-3">
           <label for="recipient-name" class="col-form-label">Email</label>
-          <input type="text" class="form-control" id="recipient-name" [(ngModel)]="email">
+          <input type="text" class="form-control" id="recipient-name" name="email">
         </div>
         <div class="mb-3">
           <label for="message-text" class="col-form-label">Contraseña</label>
-          <textarea class="form-control" id="message-text"></textarea>
+          <textarea class="form-control" id="message-text" name="contraseña"></textarea>
         </div>
       </form>
    </div>
    <div class="modal-footer">
-     <button type="button" class="bi bi-person-fill" (click)="sendLogin()">Confirmar</button>
+     <button type="submit" class="bi bi-person-fill" >Confirmar</button>
    </div>
  </ng-template>

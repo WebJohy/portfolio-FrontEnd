@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { ModalDismissReasons, NgbDatepickerModule, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
@@ -9,6 +10,7 @@ import { ModalDismissReasons, NgbDatepickerModule, NgbModal } from '@ng-bootstra
 export class InicioSesionComponent {
   closeResult = '';
   email: string = "";
+ 
 
   constructor(private modalService: NgbModal) {}
 
@@ -36,8 +38,8 @@ export class InicioSesionComponent {
 
 
 
-    sendLogin (){
-      console.log(this.email)
+    sendLogin (loginForm: NgForm){
+      console.log(loginForm)
     }
 
 }
